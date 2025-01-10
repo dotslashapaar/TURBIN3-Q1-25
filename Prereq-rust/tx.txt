@@ -3,3 +3,5 @@ task 3 - https://explorer.solana.com/tx/52J426wRJG65Hn7XXAwkGaUbRzhG4yj1djegQs7w
 task 4 - https://explorer.solana.com/tx/5pSKwiD2GqAruqcx29NmXybyNZgeSiaQ8r5ooq51N66ENwM84bNZM5JcA4PXfgr2RVtHLcPg56o7rPhcMAieyQ9F?cluster=devnet
 
 task 5 - https://explorer.solana.com/tx/5wkibNyvGfbWtZjgaLs8MFUGXQAcGZqnCXHxQkZTjsrvxpY71WQ7f64J74TgiRdVy9iTMxdDP683yvAWxv3cTNyZ?cluster=devnet
+
+task 5 (2.0) - https://explorer.solana.com/tx/d73cV4KZfru7Tge18XFLfJJNr4SQByeEARJZbVpeS8EKkBTPJvyD94vthsvd2Ch2vgLWp6kffcUNDWxcppF4qnU?cluster=devnet
