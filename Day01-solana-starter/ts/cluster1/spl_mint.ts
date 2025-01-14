@@ -35,3 +35,6 @@ const mint = new PublicKey("Es9vMFrj7LgdLCuV7eX2FjZrGskfP9h6AfXr6PnkMPK3");
         console.log(`Oops, something went wrong: ${error}`)
     }
 })()
+
+// https://explorer.solana.com/tx/3hdsbsCCmwrnCcV578DKd28oq4g3DcLDS94DTjG2C8RyDaEUVk35V3tRDwnoReSpYxK4ijmYPjc7UPjk2oM4AyEa?cluster=devnet
+
