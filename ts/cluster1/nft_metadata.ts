@@ -17,29 +17,37 @@ umi.use(signerIdentity(signer));
         // Follow this JSON structure
         // https://docs.metaplex.com/programs/token-metadata/changelog/v1.0#json-structure
 
-        // const image = ???
-        // const metadata = {
-        //     name: "?",
-        //     symbol: "?",
-        //     description: "?",
-        //     image: "?",
-        //     attributes: [
-        //         {trait_type: '?', value: '?'}
-        //     ],
-        //     properties: {
-        //         files: [
-        //             {
-        //                 type: "image/png",
-        //                 uri: "?"
-        //             },
-        //         ]
-        //     },
-        //     creators: []
-        // };
-        // const myUri = ???
-        // console.log("Your metadata URI: ", myUri);
+        const image = "https://devnet.irys.xyz/5jc8otNBcs1SL1ABuLdhoMVLtg5mSeYKwG8Mez6xgEp7"
+        const metadata = {
+            name: "PinkRug",
+            symbol: "PNKRUG",
+            description: "Get Rugged By Beautiful Pink RUGGGGGGG",
+            image: image,
+            attributes: [
+                {trait_type: 'Rug-Type', value: 'Pixel-Persian'},
+                {trait_type: 'ConstructionRug-Type', value: 'Pink-Knotted'},
+                {trait_type: 'Materials', value: 'Pixel-Wool'},
+                {trait_type: 'Style', value: 'Traditional'},
+                {trait_type: 'Features', value: 'Geometric-Pixel-Patterns'}
+            ],
+            properties: {
+                files: [
+                    {
+                        type: "image/png",
+                        uri: image
+                    },
+                ]
+            },
+            creators: []
+        };
+        const myUri = await umi.uploader.uploadJson(metadata);
+        console.log("Your metadata URI: ", myUri);
     }
     catch(error) {
         console.log("Oops.. Something went wrong", error);
     }
 })();
+
+// https://arweave.net/AibDf1BjUZL2okSYCeWeKWRNXLWzoSVYtqJCuujSg665
+// https://devnet.irys.xyz/H5YXxebLKfGpMWGNKQKWyppSnzaqN8sDF84hAKRWiomB
+// https://devnet.irys.xyz/9A5iJ6etbX1sCDXU855Vv6PmnDdPGb7hDN5RSvMs6nKe
