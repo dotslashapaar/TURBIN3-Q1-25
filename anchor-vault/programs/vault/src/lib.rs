@@ -66,7 +66,6 @@ pub struct Payment<'info> {
     #[account(mut)]
     pub signer: Signer<'info>,
     #[account(
-        mut,
         seeds = [b"state", signer.key().as_ref()],
         bump = vault_state.state_bump,
     )]
@@ -123,7 +122,7 @@ impl<'info> Payment<'info> {
 
 #[derive(Accounts)]
 pub struct Close<'info>{
-    #[account()]
+    #[account(mut)]
     pub user: Signer<'info>,
     #[account(
         mut,
