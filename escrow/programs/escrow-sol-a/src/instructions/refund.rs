@@ -49,7 +49,15 @@ impl <'info>Refund<'info> {
             authority: self.escrow.to_account_info(),
         };
 
-        let cpi_ctx = CpiContext::new(cpi_program, cpi_accounts);
+        let signer_seeds: [&[&[u8]]; 1] = [&[
+            b"escrow",
+            self.maker.to_account_info().key.as_ref(),
+            &self.escrow.seed.to_be_bytes()[..],
+            &[self.escrow.bump]
+        ]];
+
+        let cpi_ctx = CpiContext::new_with_signer(cpi_program.clone(), cpi_accounts, &signer_seeds);
+
 
         let amount = self.vault.amount;
 
