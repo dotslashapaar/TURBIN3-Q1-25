@@ -8,7 +8,7 @@ use crate::Escrow;
 pub struct Take<'info>{
     #[account(mut)]
     pub taker: Signer<'info>,
-
+    #[account(mut)]
     pub maker: SystemAccount<'info>,
     pub mint_a: InterfaceAccount<'info, Mint>,
     pub mint_b: InterfaceAccount<'info, Mint>,
@@ -134,6 +134,7 @@ impl <'info> Take<'info> {
 // pub struct Take<'info>{
 //     #[account(mut)]
 //     pub taker: Signer<'info>,
+//     #[account(mut)]
 //     pub maker: SystemAccount<'info>,
 
 //     pub mint_a: InterfaceAccount<'info, Mint>,
