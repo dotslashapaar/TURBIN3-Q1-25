@@ -25,7 +25,7 @@ pub struct Make<'info>{
         bump,
         space = 8 + Escrow:: INIT_SPACE,
     )]
-    pub escrow: Account<'info, Escrow>,
+    pub escrow: Box<Account<'info, Escrow>>,
 
     #[account(
         init,
@@ -34,7 +34,7 @@ pub struct Make<'info>{
         associated_token::authority = escrow,
 
     )]
-    pub vault: InterfaceAccount<'info, TokenAccount>,
+    pub vault: Box<InterfaceAccount<'info, TokenAccount>>,
 
     pub associated_token_program: Program<'info, AssociatedToken>,
     pub token_program: Interface<'info, TokenInterface>,
@@ -42,7 +42,7 @@ pub struct Make<'info>{
 }
 
 impl <'info>Make<'info> {
-    pub fn init_escrow(&mut self, seed: u64, receive: u64, bumps: MakeBumps) -> Result<()> {
+    pub fn init_escrow(&mut self, seed: u64, receive: u64, bumps: &MakeBumps) -> Result<()> {
         self.escrow.set_inner(Escrow { 
             seed, 
             maker: self.maker.key(), 
