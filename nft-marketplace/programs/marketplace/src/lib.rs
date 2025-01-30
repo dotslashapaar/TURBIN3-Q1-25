@@ -32,6 +32,7 @@ pub mod marketplace {
     pub fn purchase(ctx: Context<Purchase>) -> Result<()> {
         ctx.accounts.send_sol()?;
         ctx.accounts.receive_nft()?;
+        ctx.accounts.receive_rewards()?;
         ctx.accounts.close_mint_vault()?;
         Ok(())
     }
