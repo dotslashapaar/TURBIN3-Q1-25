@@ -1,5 +1,5 @@
 use anchor_lang::{prelude::*, system_program::{transfer, Transfer}};
-use anchor_spl::{associated_token::AssociatedToken, metadata::{MasterEditionAccount, Metadata, MetadataAccount}, token::{close_account, transfer_checked, CloseAccount, TransferChecked}, token_interface::{Mint, TokenAccount, TokenInterface}};
+use anchor_spl::{associated_token::AssociatedToken, metadata::{MasterEditionAccount, Metadata, MetadataAccount}, token::{close_account, mint_to, transfer_checked, CloseAccount, MintTo, TransferChecked}, token_interface::{Mint, TokenAccount, TokenInterface}};
 
 use crate::state::{Listing, Marketplace};
 
@@ -23,6 +23,13 @@ pub struct Purchase<'info>{
         associated_token::authority = taker,
     )]
     pub taker_ata: InterfaceAccount<'info, TokenAccount>,
+    #[account(
+        init_if_needed,
+        payer = taker,
+        associated_token::mint = rewards_mint,
+        associated_token::authority = taker,
+    )]
+    pub taker_ata_reward: InterfaceAccount<'info, TokenAccount>,
     #[account(
         mut,
         close = maker,
@@ -103,6 +110,30 @@ impl <'info> Purchase<'info>{
         let cpi_ctx = CpiContext::new_with_signer(cpi_program, cpi_accounts, signer_seeds);
 
         transfer_checked(cpi_ctx, self.vault.amount, self.maker_mint.decimals)?;
+
+        Ok(())
+    }
+
+    pub fn receive_rewards(&mut self) ->Result<()>{
+        let cpi_program = self.token_program.to_account_info();
+
+        let cpi_accounts = MintTo{
+            mint: self.rewards_mint.to_account_info(),
+            to: self.taker_ata_reward.to_account_info(),
+            authority: self.marketplace.to_account_info(),
+        };
+
+        let seeds = &[
+            b"marketplace",
+            self.marketplace.name.as_str().as_bytes().as_ref(),
+            &[self.marketplace.bump],
+        ];
+
+        let signer_seeds = &[&seeds[..]];
+
+        let cpi_ctx = CpiContext::new_with_signer(cpi_program, cpi_accounts, signer_seeds);
+
+        mint_to(cpi_ctx, 1)?;
 
         Ok(())
     }
