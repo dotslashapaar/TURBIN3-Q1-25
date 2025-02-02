@@ -1,6 +1,6 @@
 # Automated Market Maker (AMM) Anchor Project
 
-A decentralized automated market maker (AMM) built on Solana using the [Anchor framework](https://project-serum.github.io/anchor/). This project implements an AMM based on a constant product curve, allowing users to initialize a liquidity pool, deposit tokens to provide liquidity, swap tokens, and withdraw liquidity.
+A decentralized automated market maker (AMM) built on Solana using the [Anchor framework](https://www.anchor-lang.com/docs). This project implements an AMM based on a constant product curve, allowing users to initialize a liquidity pool, deposit tokens to provide liquidity, swap tokens, and withdraw liquidity.
 
 ---
 
@@ -11,10 +11,10 @@ A decentralized automated market maker (AMM) built on Solana using the [Anchor f
 
 - **Dynamic:**  
   Supports multiple key actions:
-  - **Initialize:** Set up the AMM pool with configuration parameters including a fee structure and optional authority.
-  - **Deposit:** Allow liquidity providers to deposit tokens into the pool while receiving LP (liquidity provider) tokens.
-  - **Swap:** Enable users to swap between two tokens based on a constant product formula.
-  - **Withdraw:** Permit liquidity providers to withdraw their liquidity, receiving tokens proportional to their share of the pool.
+  - `Initialize:` Set up the AMM pool with configuration parameters including a fee structure and optional authority.
+  - `Deposit:` Allow liquidity providers to deposit tokens into the pool while receiving LP (liquidity provider) tokens.
+  - `Swap:` Enable users to swap between two tokens based on a constant product formula.
+  - `Withdraw:` Permit liquidity providers to withdraw their liquidity, receiving tokens proportional to their share of the pool.
 
 - **Distributed:**  
   Integrates with the SPL Token program and the Associated Token Program via Anchor’s cross-program invocations (CPIs) to securely handle token transfers and account management in a trustless manner.
@@ -23,17 +23,17 @@ A decentralized automated market maker (AMM) built on Solana using the [Anchor f
 
 ## Project Structure & Explanation
 
-### lib.rs
+### `lib.rs`
 
 **Purpose:**  
 This file serves as the entry point for the AMM program. It declares the program ID and exposes the following public instructions:
-- **initialize:** Initializes the AMM pool by setting up configuration, LP token mint, and vault accounts for the two tokens.
-- **deposit:** Handles liquidity deposits into the pool and mints LP tokens accordingly.
-- **swap:** Facilitates token swaps using a constant product curve model.
+- `initialize:` Initializes the AMM pool by setting up configuration, LP token mint, and vault accounts for the two tokens.
+- `deposit:` Handles liquidity deposits into the pool and mints LP tokens accordingly.
+- `swap:` Facilitates token swaps using a constant product curve model.
 
 ---
 
-### initialize.rs
+### `initialize.rs`
 
 **Purpose:**  
 Sets up the AMM configuration and associated token accounts. Key tasks include:
@@ -44,7 +44,7 @@ Sets up the AMM configuration and associated token accounts. Key tasks include:
 
 ---
 
-### deposit.rs
+### `deposit.rs`
 
 **Purpose:**  
 Manages the liquidity deposit process. This involves:
@@ -55,7 +55,7 @@ Manages the liquidity deposit process. This involves:
 
 ---
 
-### swap.rs
+### `swap.rs`
 
 **Purpose:**  
 Handles token swaps between the two tokens in the pool. Key functions include:
@@ -65,7 +65,7 @@ Handles token swaps between the two tokens in the pool. Key functions include:
 
 ---
 
-### withdraw.rs
+### `withdraw.rs`
 
 **Purpose:**  
 Allows liquidity providers to withdraw their share of liquidity. The process involves:
