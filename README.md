@@ -1,4 +1,4 @@
-# Vire Protocol
+# Vire Protocol - (Turbin3 Capstone)
 
 **Vire Protocol** (French for "transfer" bc why not xD) is a decentralized tuition payment protocol that leverages blockchain technology to make tuition payments in stablecoins (USDC and USDT) more accessible for international students and universities. Vire Protocol streamlines the payment process by directly minting a unique NFT card for each student, which belongs to the university’s unique mint collection. The protocol automatically freezes (stakes) the NFT at the start of each semester and allows students to unfreeze (unstake) it once the semester ends.
 
