@@ -27,4 +27,13 @@ pub mod amm_anchor {
         ctx.accounts.swap(is_x, amount, min)?;
         Ok(())
     }
+
+    pub fn withdraw(ctx: Context<Withdraw>,amount: u64, min_x: u64, min_y: u64) -> Result<()> {
+        ctx.accounts.withdraw(amount, min_x, min_y)?;
+        Ok(())
+    }
 }
+
+
+// 65s61y4ngkoLK2GRGqHUyed9WHoYKwqt6iMw6wQ3FS2v524S9qTU6MiNUh6dV5dUvudNPZx9BnLgh1ZKcYqqjVQB
+

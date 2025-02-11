@@ -7,18 +7,15 @@ skip-lint = false
 [programs.localnet]
 marketplace = "8ZKYMURwrae6dSZqrUQW9uY72ZhqJaLhBa88hZ7b78nb"
 
+[programs.devnet]
+marketplace = "8ZKYMURwrae6dSZqrUQW9uY72ZhqJaLhBa88hZ7b78nb"
+
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
+cluster = "Devnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
-
-[test.validator]
-url = "https://api.mainnet-beta.solana.com"
-
-[[test.validator.clone]]
-address = "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"

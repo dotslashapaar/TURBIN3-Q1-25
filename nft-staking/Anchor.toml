@@ -7,11 +7,14 @@ skip-lint = false
 [programs.localnet]
 nft_staking = "6fc11zfjvqNDoMK9eWTCQGf28S8qrK1xW6M8HakJGQM7"
 
+[programs.devnet]
+nft_staking = "6fc11zfjvqNDoMK9eWTCQGf28S8qrK1xW6M8HakJGQM7"
+
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
+cluster = "Devnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]

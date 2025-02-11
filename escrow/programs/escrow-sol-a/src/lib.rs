@@ -11,7 +11,7 @@ pub mod escrow_sol_a {
     use super::*;
 
     pub fn make(ctx: Context<Make>,seed: u64, receive: u64,deposit: u64) -> Result<()> {
-        ctx.accounts.init_escrow(seed, receive, ctx.bumps)?;
+        ctx.accounts.init_escrow(seed, receive, &ctx.bumps)?;
         ctx.accounts.deposit(deposit)?;
         Ok(())
     }
@@ -54,3 +54,5 @@ pub mod escrow_sol_a {
 
 
 // }
+
+// 3WuQpvjpGhAUDfCWGdSSLdwGZ6qg4ZxdJB48P432FBe47gyCqfE4dnBX3ShnBaxujEFkJtMMZB6ay5xznyEnvcnp
