@@ -65,7 +65,7 @@ pub mod vire_protocol {
         Ok(())
     }
 
-    pub fn unstake_card(ctx: Context<UnfreezeCard>) -> Result<()> {
+    pub fn unfreeze_card(ctx: Context<UnfreezeCard>) -> Result<()> {
        ctx.accounts.unfreeze_card()?;
        Ok(())
     }
@@ -73,4 +73,4 @@ pub mod vire_protocol {
     
 }
 
-
+// Devnet Signature - 2ySczzuUgfsD9nGessNedEsizbUzBp63EjJV6HFMcYsv8L76kUXYkHPErHPzqFq2J4SqtjDeGB1EH9RM1GoGwuuD
